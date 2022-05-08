@@ -251,7 +251,7 @@
 								label: 'Gladius',
 								smelt: 12,	//amount of materials gained on smelt
 								smeltSmall: 125,	//amount of small materials gained on smelt; could use only this value, but wiki values make it unclear if it is rounded up or down
-								toMake: {	//work and amount of materials required to make an item
+								toMake: {	//work and amount of materials required to make an item, only needed when item can be made from different materials
 									work: 12000,
 									material: 50
 								}
@@ -486,7 +486,7 @@
 										}
 									];
 								},
-								get marketValue(){	//all melee weapons are made of variable material, so their price will depend on material used
+								get marketValue(){
 									//amount of variable material needed
 									const variableAmount = this.material.small ? 400 : 40;
 									//price of variable material and other materials - 40 primary material, 2 components, 10 plasteel
