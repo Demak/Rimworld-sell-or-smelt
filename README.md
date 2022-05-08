@@ -42,6 +42,6 @@ Settings below allow to set information about the pawn you want to make a trade 
  
 ## Working offline
  
-Whole page is organized into a single .html file, making it easy to save it offline. The only dependency is a Vue.js library, which is used to provide dynamic updates, also included into the .html file and thus calculator can be used without internet connection. Download or save raw copy of index.html file from Github to save it offline.
+Whole page is organized into a single .html file, making it easy to use it offline. The only dependency is a Vue.js library, which is used to provide dynamic updates, also included into the .html file and thus calculator can be used without internet connection. Download or save raw copy of index.html file from Github to use it offline.
  
 Unfortunately saving a page through Ctrl+S, when viewing a page on Github pages, is not saving all attributes properly and breaks dynamic updates, you have to download it from github.
