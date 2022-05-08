@@ -40,7 +40,7 @@ Settings below allow to set information about the pawn you want to make a trade 
 
 7. Trader has a leader role (Ideology DLC): check this checkbox if your pawn has a leader role provided by your ideology https://rimworldwiki.com/wiki/Ideoligion#Leaders.
  
-## Working offline
+## Using offline
  
 Whole page is organized into a single .html file, making it easy to use it offline. The only dependency is a Vue.js library, which is used to provide dynamic updates, also included into the .html file and thus calculator can be used without internet connection. Download or save raw copy of index.html file from Github to use it offline.
  
