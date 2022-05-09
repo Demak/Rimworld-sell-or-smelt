@@ -2,6 +2,8 @@
  
 This calculator is made to help Rimworld players determine whether it is more valuable to smelt an item to gain some resources from it, or wait to sell it.
 It complements https://rimworldwiki.com/wiki/Electric_smelter#Sell_or_Smelt section of official Rimworld wiki.
+
+Can be used online on Github Pages https://demak.github.io/Rimworld-sell-or-smelt/.
  
 ## Usage instructions
  
