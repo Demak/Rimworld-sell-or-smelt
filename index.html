@@ -262,8 +262,8 @@
 								smelt: 25,
 								smeltSmall: 250,
 								toMake: {
-									work: 12000,
-									material: 50
+									work: 18000,
+									material: 100
 								}
 							}),
 							new melee({
@@ -272,8 +272,8 @@
 								smelt: 7,
 								smeltSmall: 75,
 								toMake: {
-									work: 12000,
-									material: 50
+									work: 1800,
+									material: 30
 								}
 							}),
 							new melee({
@@ -282,7 +282,7 @@
 								smelt: 13,
 								smeltSmall: 125,
 								toMake: {
-									work: 12000,
+									work: 5000,
 									material: 50
 								}
 							}),
@@ -293,7 +293,7 @@
 								smeltSmall: 188,
 								toMake: {
 									work: 12000,
-									material: 50
+									material: 75
 								}
 							}),
 							new melee({
@@ -302,7 +302,7 @@
 								smelt: 13,
 								smeltSmall: 125,
 								toMake: {
-									work: 12000,
+									work: 6000,
 									material: 50
 								}
 							}),
@@ -312,8 +312,8 @@
 								smelt: 10,
 								smeltSmall: 100,
 								toMake: {
-									work: 12000,
-									material: 50
+									work: 1200,
+									material: 40
 								}
 							}),
 							new melee({
@@ -322,7 +322,7 @@
 								smelt: 13,
 								smeltSmall: 125,
 								toMake: {
-									work: 12000,
+									work: 7000,
 									material: 50
 								}
 							}),
@@ -332,8 +332,8 @@
 								smelt: 37,
 								smeltSmall: 375,
 								toMake: {
-									work: 12000,
-									material: 50
+									work: 18000,
+									material: 150
 								}
 							})
 						],
@@ -908,9 +908,13 @@
 						if(!MATERIALS[event.target.value]) return;
 						item.material = MATERIALS[event.target.value];
 					},
+					smeltsIntoSilver(item){
+						return item.material === SILVER;
+					},
 					smeltCost(item){	//how much it will cost to buy same amount of materials which you get from smelting an item
 						if(!item.smelt) return 0;
 						if(Array.isArray(item.smelt)) return item.smelt.reduce((total, component) => total + this.smeltCost(component), 0);
+						if(item.material === SILVER) return item.smeltSmall;	//silver doesn't need to be bought
 						if(item.material.small) return Math.ceil(item.smeltSmall * this.buyPrice(item.material.price));
 						return Math.ceil(item.smelt * this.buyPrice(item.material.price));
 					},
@@ -972,7 +976,8 @@
 			<div v-if="!filtered.length">Select items to display inside item categories</div>
 			<div v-for="item in filtered" class="item">
 				<template v-if="smeltCost(item)">
-					<div class="smelting">{{item.label}} smelts into {{smeltsInto(item)}}, cost to buy these materials is {{smeltCost(item)}}</div>
+					<div class="smelting">{{item.label}} smelts into {{smeltsInto(item)}}
+						<span v-if="!smeltsIntoSilver(item)">, cost to buy these materials is {{smeltCost(item)}}</span></div>
 					<div v-for="quality in $options.qualities" class="quality">
 						<div>{{quality.label}}</div>
 						<div>sell price at 100%: {{sellPrice(item, quality)}}</div>
